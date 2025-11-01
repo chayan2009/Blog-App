@@ -1,6 +1,6 @@
-# BlogApp
+ **Spring Boot REST API** for managing blog posts.
 
-A simple **Spring Boot REST API** for managing blog posts.
+ **Spring Boot REST API** for managing blog posts with H2DB.
 
 ---
 
