@@ -10,8 +10,6 @@
 - Swagger UI documentation
 - Maven build & run
 
----
-
 ##  Run the project locally
 ```bash
 git clone https://github.com/<your-username>/BlogApp.git
