@@ -1,0 +1,95 @@
+# =============================================================================
+# Blog App Configuration Examples
+# Copy this file to application.properties and configure based on your needs
+# =============================================================================
+
+spring.application.name=BlogApp-H2Db
+
+# =============================================================================
+# Server Configuration
+# =============================================================================
+server.port=8080
+
+# =============================================================================
+# Database Configuration - Choose ONE option below
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Option 1: H2 In-Memory Database (Development/Testing) - DEFAULT
+# -----------------------------------------------------------------------------
+spring.datasource.url=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+# H2 Console (Web UI)
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+# -----------------------------------------------------------------------------
+# Option 2: MySQL Database (Production)
+# -----------------------------------------------------------------------------
+# spring.datasource.url=jdbc:mysql://localhost:3306/blogdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+# spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+# spring.datasource.username=root
+# spring.datasource.password=your_password
+# spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# -----------------------------------------------------------------------------
+# Option 3: PostgreSQL Database (Production)
+# -----------------------------------------------------------------------------
+# spring.datasource.url=jdbc:postgresql://localhost:5432/blogdb
+# spring.datasource.driver-class-name=org.postgresql.Driver
+# spring.datasource.username=postgres
+# spring.datasource.password=your_password
+# spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+# =============================================================================
+# JPA / Hibernate Configuration
+# =============================================================================
+
+# DDL Auto Configuration
+# - create: Drop and recreate schema on startup (use for initial dev only)
+# - create-drop: Create schema on startup, drop on shutdown (use for testing)
+# - update: Update schema if needed, never drop tables (use for development)
+# - validate: Validate schema, throw error if mismatch (use for production)
+# - none: No schema management (use for production with migration tools)
+spring.jpa.hibernate.ddl-auto=update
+
+# Show SQL queries in console
+spring.jpa.show-sql=true
+
+# Format SQL queries for readability
+spring.jpa.properties.hibernate.format_sql=true
+
+# =============================================================================
+# JPA Open-in-View (OSIV) Configuration
+# =============================================================================
+# Set to false in production to avoid lazy loading issues
+spring.jpa.open-in-view=true
+
+# =============================================================================
+# Logging Configuration
+# =============================================================================
+# Logging levels
+logging.level.root=INFO
+logging.level.com.blogapp=DEBUG
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+
+# =============================================================================
+# Actuator Configuration (Optional - Uncomment to enable)
+# =============================================================================
+# management.endpoints.web.exposure.include=health,info,metrics
+# management.endpoint.health.show-details=always
+
+# =============================================================================
+# Production-Ready Settings
+# =============================================================================
+# For production deployments, consider:
+# 1. Using spring.jpa.hibernate.ddl-auto=validate or none
+# 2. Implementing database migrations (Flyway or Liquibase)
+# 3. Configuring connection pooling (HikariCP is default)
+# 4. Setting up proper logging (Logback/Log4j2)
+# 5. Enabling Spring Security for authentication/authorization
+# 6. Using environment variables for sensitive data (passwords, API keys)
