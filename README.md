@@ -7,7 +7,7 @@
 ## Features
 - RESTful CRUD endpoints (`GET`, `POST`, `PUT`, `DELETE`)
 - Unit tests with JUnit 5 + MockMvc
-- Swagger UI documentation
+- Swagger UI documentation.
 - Maven build & run
 
 ##  Run the project locally
